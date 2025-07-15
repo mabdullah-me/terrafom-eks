@@ -152,7 +152,7 @@ helm repo update
 
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
   -n kube-system \
-  --set clusterName=education-eks-PiLc7s9m \
+  --set clusterName=<CLUSTER_NAME> \
   --set serviceAccount.create=false \
   --set serviceAccount.name=aws-load-balancer-controller
 ```
