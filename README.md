@@ -26,7 +26,7 @@ aws configure
 
 ## 📦 Deploy the EKS Cluster
 
-1. Clone the repository and run the following commands:
+Clone the repository and run the following commands:
 
 ```bash
 git clone <your-repo-url>
@@ -135,7 +135,7 @@ Replace placeholders with your values:
 
 ```bash
 eksctl create iamserviceaccount \
-  --cluster=education-eks-PiLc7s9m \
+  --cluster=<CLUSTER_NAME> \
   --namespace=kube-system \
   --name=aws-load-balancer-controller \
   --attach-policy-arn=arn:aws:iam::<AWS_ACCOUNT_ID>:policy/AWSLoadBalancerControllerIAMPolicy \
