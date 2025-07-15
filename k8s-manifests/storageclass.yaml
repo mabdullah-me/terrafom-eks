@@ -1,0 +1,17 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: efs-sc
+provisioner: efs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-08bf067e9bafb024f    # <-- replace with your EFS ID
+  directoryPerms: "770"                 # allows read/write for owner & group
+  gidRangeStart: "500"                  # include GID 999 and more
+  gidRangeEnd: "2000"
+  basePath: "/dynamic_provisioning"
+  subPathPattern: "${.PVC.namespace}/${.PVC.name}"
+  ensureUniqueDirectory: "true"
+  reuseAccessPoint: "false"
